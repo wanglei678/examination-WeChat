@@ -1,0 +1,51 @@
+.master {
+  .item-title {
+    text-align: center;
+    .title {
+      font-size: 20px;
+      font-weight: 600;
+    }
+  }
+  .course {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    .video-box {
+      position: relative;
+      flex: 1;
+      padding-left:4rpx;
+      .poster {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 100;
+        left: 4rpx;
+      }
+    }
+    .video {
+      width: 100%;
+      height: 150px;
+    }
+    .course-info {
+      width: 48%;
+      padding-left: 5px;
+      .info-title {
+        font-size: 15px;
+        font-weight: 500;
+      }
+      .little-title{
+        font-size: 13px;
+      }
+      .info-desc {
+        font-size: 13px;
+        color: #aeaeae;
+        display: -webkit-box;
+        -webkit-line-clamp: 7;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        word-break: break-all;
+      }
+    }
+  }
+}

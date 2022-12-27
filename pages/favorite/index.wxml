@@ -1,0 +1,26 @@
+<view>
+  <view class="favorite">
+    <view class="item-label">收藏统计</view>
+    <view class="statistics">
+      <view class="item">
+        <view class="">收藏总数</view>
+        <view class="item-num" bindtap="goToAllFavorite">
+          <view class="">{{totalNum}}</view>
+          <view class="icon-box">
+            <view class="icon-style">></view>
+          </view>
+        </view>
+      </view>
+      <view class="item border-no">
+        <view class="">今日收藏</view>
+        <view class="item-num" bindtap="goToTodayFavorite">
+          <view class="">{{todayNum}}</view>
+          <view class="icon-box">
+            <view class="icon-style">></view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- <view class="item-label">收藏分布</view> -->
+  </view>
+</view>

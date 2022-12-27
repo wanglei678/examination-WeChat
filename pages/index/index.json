@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "考试驿站",
+  "usingComponents": {
+    "MainBody": "/component/MainBody/index"
+  }
+}

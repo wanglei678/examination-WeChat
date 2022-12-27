@@ -1,0 +1,20 @@
+<view>
+  <view class="item-title" >{{"自我学习"}}</view>
+  <view class="course">
+    <view bindtap="handleSelfLearn" wx:for="{{course}}" data-index="{{index}}" wx:for-index="index" wx:key="index" wx:for-item="item" class="course-type">
+      {{item.label}}
+    </view>
+  </view>
+  <view class="item-title" >{{"自我测评"}}</view>
+  <view class="course">
+    <view bindtap="handleSelfTest" wx:for="{{onlineTest}}" data-index="{{index}}" wx:for-index="index" wx:key="index" wx:for-item="item" class="course-type">
+      {{item.label}}
+    </view>
+  </view>
+  <view class="item-title" >{{"国考实操仿真指南"}}</view>
+  <view class="course font-14">
+    <view wx:for="{{operationExercise}}" wx:for-index="index" wx:key="index" wx:for-item="item" class="course-type">
+      {{item.label}}
+    </view>
+  </view>
+</view>

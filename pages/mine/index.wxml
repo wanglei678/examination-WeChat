@@ -1,0 +1,13 @@
+<view>
+  <view class="">
+    <view class="userinfo">
+      <view wx:if="{{userName.length>0}}" class="user">
+        <view class="">{{userName}}</view>
+        <view class="user-type">{{app.globalData.typeMap[courseType]}}</view>
+      </view>
+      <view wx:else>未知用户</view>
+    </view>
+    <view class="mine-item" bindtap="goToMyFavorite">我的收藏</view>
+    <view class="mine-item" bindtap="goToMyErrors">我的错题</view>
+  </view>
+</view>

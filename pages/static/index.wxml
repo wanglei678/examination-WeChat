@@ -1,0 +1,6 @@
+<!-- index.wxml -->
+<view class="mock-test">
+  <view >统计页面</view>
+  <view> <TestStatic static-data="{{testData}}"/></view>
+  <view></view>
+</view>

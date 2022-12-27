@@ -1,0 +1,144 @@
+.common-test {
+  height: 100%;
+  position: relative;
+}
+.common-test .title {
+  word-wrap: break-word;
+  padding-left: 10px;
+  display: flex;
+}
+.common-test .title .question-type {
+  background-color: #1296db;
+  padding: 2px 3px;
+  border-radius: 5px;
+  color: #fff;
+  display: inline-block;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 20px;
+}
+.common-test .img-box {
+  width: 20px;
+  height: 20px;
+}
+.common-test .img-box .img {
+  width: 20px;
+  height: 20px;
+}
+.common-test .options {
+  padding: 0 30px;
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+.common-test .options .option {
+  display: flex;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: 600;
+  background-color: #eae3e3;
+  margin-top: 5px;
+}
+.common-test .options .active {
+  background-color: #1296db;
+  color: #fff;
+}
+.common-test .right-answer {
+  margin: 10px 30px;
+  background-color: #eae3e3;
+  border-radius: 5px;
+  padding: 10px 3px;
+  display: flex;
+  padding-left: 10px;
+}
+.common-test .right-answer .label {
+  font-weight: 600;
+  margin-left: 5px;
+  margin-right: 5px;
+  color: #1296db;
+}
+.common-test .analysis {
+  margin: 10px 30px;
+  background-color: #eae3e3;
+  border-radius: 5px;
+  padding: 10px 3px;
+  padding-left: 10px;
+}
+.common-test .analysis .label {
+  font-weight: 600;
+  margin-left: 5px;
+  margin-right: 5px;
+  color: #1296db;
+}
+.common-test .footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 20px 10px;
+  border-top: 1px solid #aeaeae;
+  z-index: 100;
+  background-color: #fff;
+}
+.common-test .footer .footer-title {
+  display: flex;
+  justify-content: space-between;
+}
+.common-test .footer .footer-title .next-btn {
+  background-color: #1296db;
+  padding: 3px 5px;
+  color: #fff;
+  border-radius: 3px;
+}
+.common-test .footer .footer-title .margin-right {
+  margin-right: 10px;
+}
+.common-test .footer .footer-title .margin-left {
+  margin-left: 10px;
+}
+.common-test .footer .all {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 10px;
+}
+.common-test .footer .all .problem {
+  border: 1px solid #aeaeae;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  text-align: center;
+  margin: 10px;
+}
+.common-test .footer .all .num {
+  position: relative;
+  top: 4px;
+  color: #1296db;
+}
+.common-test .footer .all .problem-right {
+  background-color: #8bcbec;
+  color: #1296db;
+}
+.common-test .footer .all .problem-error {
+  background-color: rgba(255, 0, 0, 0.3);
+  color: red;
+}
+.common-test .footer .all .problem-error .num {
+  position: relative;
+  top: 4px;
+  color: red;
+}
+.common-test .footer .all .problem-active {
+  border: 1px solid #1296db;
+}
+.common-test .footer .all .problem-active-err {
+  border: 1px solid red;
+}
+.common-test .modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(240, 240, 240, 0.8);
+  z-index: 10;
+}

@@ -1,0 +1,5 @@
+<view>
+  <view class="favorite">
+    <view class="mine-item">我的错题</view>
+  </view>
+</view>
