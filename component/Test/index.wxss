@@ -2,6 +2,12 @@
   height: 100%;
   position: relative;
 }
+.common-test .time {
+  text-align: center;
+}
+.common-test .img_style {
+  width: 90%;
+}
 .common-test .title {
   word-wrap: break-word;
   padding-left: 10px;
@@ -42,6 +48,9 @@
 .common-test .options .active {
   background-color: #1296db;
   color: #fff;
+}
+.common-test .options .error {
+  color: red;
 }
 .common-test .right-answer {
   margin: 10px 30px;

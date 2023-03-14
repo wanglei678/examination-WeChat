@@ -9,6 +9,7 @@
   display: flex;
   justify-content: center;
   margin-top: 10px;
+  min-height: 140px;
 }
 .master .course .video-box {
   position: relative;
@@ -25,6 +26,27 @@
 .master .course .video {
   width: 100%;
   height: 150px;
+  position: relative;
+}
+.master .course .video .rate {
+  color: #fff;
+  width: 50px;
+  font-size: 12px;
+  font-weight: 500;
+  position: absolute;
+  right: 10px;
+  bottom: 22px;
+}
+.master .course .video .rate .rate_box {
+  position: absolute;
+  height: 80px;
+  top: -80px;
+}
+.master .course .video .rate .rate_box .sub_rate {
+  height: 20px;
+}
+.master .course .video .hidden_rate {
+  color: transparent;
 }
 .master .course .course-info {
   width: 48%;

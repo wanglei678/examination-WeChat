@@ -1,0 +1,10 @@
+.mijuan-test {
+  height: 100%;
+}
+.mijuan-test .box {
+  padding-left: 15px;
+}
+.mijuan-test .box .title {
+  padding: 5px;
+  color: #1296db;
+}

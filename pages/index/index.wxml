@@ -1,13 +1,15 @@
 <!-- index.wxml -->
 <view class="container">
   <view class="flex-wrp" style="flex-direction:column;">
-        <view class="demo-text-1">
-          <!-- <image mode="widthFix" src="/images/scanCoupons.png"/> -->
-          <text class="neon">【前端实验室】分享前端最新、最实用前端技术</text>
-        </view>
-        <view class="flex-item flex-item-V demo-text-2"><MainBody/></view>
-        <!-- <view class="flex-item flex-item-V demo-text-3">3</view> -->
-      </view>
+    <view class="img-box">
+      <image mode="aspectFit" class="img" src="/images/index_banner.jpg"/>
+      <!-- <text class="neon">【前端实验室】分享前端最新、最实用前端技术</text> -->
+    </view>
+    <view class="flex-item flex-item-V demo-text-2">
+      <MainBody />
+    </view>
+    <!-- <view class="flex-item flex-item-V demo-text-3">3</view> -->
+  </view>
   <!-- <view class="userinfo">
     <block wx:if="{{canIUseOpenData}}">
       <view class="userinfo-avatar" bindtap="bindViewTap">

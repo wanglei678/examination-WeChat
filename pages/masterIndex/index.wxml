@@ -1,0 +1,13 @@
+<view class="chapter">
+  <!-- <view class="title">基础知识</view> -->
+  <view class="chapter-item" wx:for="{{chapterList}}" wx:for-index="index" wx:key="index" wx:for-item="item">
+    <view class="item-box" data-item="{{item}}" bindtap="handleChapterClick">
+      <view class="item">
+        <image class="img" mode="scaleToFill"  src="http://43.136.29.210/media/img/base_poster.png"></image>
+      </view>
+      <view class="item-label" style="color:#1296db">{{item.name}}</view>
+      <!-- <view class="item-right">{{item.sum}}题</view> -->
+    </view>
+  </view>
+  <view></view>
+</view>

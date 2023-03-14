@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "通关密卷",
+  "usingComponents": {
+    "TestStatic": "/component/TestStatic/index"
+  }
+}

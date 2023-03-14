@@ -5,7 +5,17 @@
 .demo-text-1{
   background-color: #1296db;
 }
-
+.img-box{
+  position: relative;
+  height: 255rpx;
+}
+.img-box .img{
+  width: 750rpx;
+  height: 255rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
 .userinfo-avatar {
   overflow: hidden;
   width: 128rpx;

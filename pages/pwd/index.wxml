@@ -1,0 +1,9 @@
+<!-- index.wxml -->
+<view class="pwd">
+  <view class="weui-cells__title">请输入密码</view>
+  <input class="weui-input" type="text" maxlength="{{10}}" bindinput="bindFirstCode" placeholder="请输入密码,最长为10位" />
+  <view class="weui-cells__title">请再次输入密码</view>
+  <input class="weui-input" type="text" maxlength="{{10}}" bindinput="bindSecondCode" placeholder="请再次输入密码,与上面的保持一致" />
+  <view class="btn-text" bindtap="submitPwd">确认修改</view>
+  <view></view>
+</view>

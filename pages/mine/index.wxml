@@ -9,5 +9,6 @@
     </view>
     <view class="mine-item" bindtap="goToMyFavorite">我的收藏</view>
     <view class="mine-item" bindtap="goToMyErrors">我的错题</view>
+    <!-- <view class="mine-item" bindtap="goToUpdatePwd">修改密码</view> -->
   </view>
 </view>

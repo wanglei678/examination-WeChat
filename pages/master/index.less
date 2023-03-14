@@ -10,10 +10,11 @@
     display: flex;
     justify-content: center;
     margin-top: 10px;
+    min-height: 140px;
     .video-box {
       position: relative;
       flex: 1;
-      padding-left:4rpx;
+      padding-left: 4rpx;
       .poster {
         position: absolute;
         width: 100%;
@@ -25,6 +26,27 @@
     .video {
       width: 100%;
       height: 150px;
+      position: relative;
+      .rate {
+        color: #fff;
+        width: 50px;
+        font-size: 12px;
+        font-weight: 500;
+        position: absolute;
+        right: 10px;
+        bottom: 22px;
+        .rate_box{
+          position: absolute;
+          height: 80px;
+          top: -80px;
+          .sub_rate{
+            height: 20px;
+          }
+        }
+      }
+      .hidden_rate{
+        color: transparent;
+      }
     }
     .course-info {
       width: 48%;
@@ -33,7 +55,7 @@
         font-size: 15px;
         font-weight: 500;
       }
-      .little-title{
+      .little-title {
         font-size: 13px;
       }
       .info-desc {

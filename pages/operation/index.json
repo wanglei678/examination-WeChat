@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "实操",
+  "usingComponents": {
+    "TestStatic": "/component/TestStatic/index"
+  }
+}

@@ -1,5 +1,6 @@
 // index.js
 // 获取应用实例
+import { getChapterList } from "../config/chapter";
 const app = getApp();
 
 Page({
@@ -13,17 +14,20 @@ Page({
     });
   },
   onLoad(option) {
-    console.log(option)
-    const arr = [];
-    for (let index = 0; index < 10; index++) {
-      const obj = {
-        id: index + 1,
-        name: "chapter" + index,
-        sum: index + 1,
-      };
-      arr.push(obj);
-    }
-    this.setData({ chapterList: arr });
+    console.log(option); //id为0:基础知识  1:根据grade查章节
+    this.getDataList(option);
+  },
+  getDataList(option) {
+    const req = {
+      grade: option.id,
+    };
+    getChapterList(req).then((resp) => {
+      console.log("...", resp);
+      const { data = [], status } = resp;
+      if (status == 200) {
+        this.setData({ chapterList: data });
+      }
+    });
   },
   handleChapterClick(e) {
     const { chapterList = [] } = this.data;
@@ -31,9 +35,9 @@ Page({
     console.log("......e", e);
     console.log(item);
     wx.navigateTo({
-      url: "/pages/chapterTest/index?id="+item.id
+      url: "/pages/chapterTest/index?id=" + item.id,
     });
-    
+
     // this.setData({
     //   hidePoster,
     //   showFullscreenBtn,

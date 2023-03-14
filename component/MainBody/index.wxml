@@ -13,7 +13,7 @@
   </view>
   <view class="item-title" >{{"国考实操仿真指南"}}</view>
   <view class="course font-14">
-    <view wx:for="{{operationExercise}}" wx:for-index="index" wx:key="index" wx:for-item="item" class="course-type">
+    <view bindtap="handleSelfOper" data-item="{{item}}" wx:for="{{operationExercise}}" wx:for-index="index" wx:key="index" wx:for-item="item" class="course-type">
       {{item.label}}
     </view>
   </view>

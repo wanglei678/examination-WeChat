@@ -38,4 +38,9 @@ Page({
       url: "/pages/errors/index"
     });
   },
+  goToUpdatePwd(){
+    wx.navigateTo({
+      url: "/pages/pwd/index"
+    });
+  }
 });

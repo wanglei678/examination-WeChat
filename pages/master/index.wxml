@@ -1,28 +1,29 @@
 <view class="master">
+  <scroll-view scroll-y="true" style="height: 85%;">
   <view class="item-title">
-    <view class="title">{{infos.title}}</view>
-    <view>{{"("+infos.desc+")"}}</view>
+    <view class="title">{{commonCourse.title}}</view>
+    <!-- <view>{{"("+infos.desc+")"}}</view> -->
   </view>
-  <view class="course">
-    <view class="video-box">
-      <video id="common" class="video" src="http://121.37.26.128/media/common.mp4" autoplay="{{showFullscreenBtn[0]}}" show-center-play-btn='{{false}}' show-fullscreen-btn="{{showFullscreenBtn[0]}}" controls object-fit="fill" picture-in-picture-mode="{{['push', 'pop']}}" initial-time="{{0}}"></video>
-      <image wx:if="{{hidePoster[0]===false}}" class="poster" data-id="common" bindtap="playVedio" src="http://121.37.26.128/images/common.png"></image>
+  <view class="course" wx:for="{{commonCourse.data}}" wx:for-index="index" wx:key="index" wx:for-item="item">
+    <view class="video-box" >
+      <video id="{{'common'+index}}" bindcontrolstoggle="handleToggle" referrer-policy="no-referrer" custom-cache="{{false}}" class="video" wx:if="{{playIndex===index}}" src="{{commonCourse.url+commonCourse.label[index]+'.mp4'}}" autoplay show-center-play-btn='{{false}}' show-bottom-progress show-fullscreen-btn="{{showFullscreenBtn[index]}}" controls="{{true}}" object-fit="fill" picture-in-picture-mode="{{['push', 'pop']}}" initial-time="{{0}}">
+        <view class="rate {{showRate?'':'hidden_rate'}}">
+          <!-- <view class="rate"> -->
+          <view bindtap="rateChange">{{rate}}</view>
+          <view class="rate_box" wx:if="{{showRateBox}}">
+            <view bindtap="chooseRate" data-index="2.0" class="sub_rate">2.0</view>
+            <view bindtap="chooseRate" data-index="1.5" class="sub_rate">1.5</view>
+            <view bindtap="chooseRate" data-index="1.0"class="sub_rate">1.0</view>
+            <view bindtap="chooseRate" data-index="0.5"class="sub_rate">0.5</view>
+          </view>
+        </view>
+      </video>
+      <image wx:if="{{playIndex!=index}}" src="{{'http://43.136.29.210/media/img/'+poster}}" data-index="{{index}}" bindtap="playVedio" class="poster" data-id="common" ></image>
     </view>
-    <view class="course-info" wx:if="{{!showFullscreenBtn[0]}}">
-      <view class="info-title">{{commonCourse.title}}</view>
+    <view class="course-info" wx:if="{{!showFullscreenBtn[index]}}">
+      <view class="info-title">{{item}}</view>
       <view class="info-desc">{{commonCourse.desc}}</view>
     </view>
   </view>
-  <view class="course">
-    <view class="video-box">
-      <video id="other" class="video" src="http://121.37.26.128/media/common.mp4" 
-      autoplay="{{showFullscreenBtn[1]}}" show-center-play-btn='{{false}}' show-fullscreen-btn="{{showFullscreenBtn[1]}}" controls object-fit="fill" picture-in-picture-mode="{{['push', 'pop']}}" initial-time="{{0}}"></video>
-      <image wx:if="{{hidePoster[1]===false}}" class="poster" data-id="common" bindtap="playOtherVedio" src="http://121.37.26.128/images/common.png"></image>
-    </view>
-    <view class="course-info" wx:if="{{!showFullscreenBtn[1]}}">
-      <view class="info-title">{{infos.title}}</view>
-      <view class="little-title">{{"("+infos.desc+")"}}</view>
-      <view class="info-desc">{{infos.courseDesc}}</view>
-    </view>
-  </view>
+</scroll-view>
 </view>

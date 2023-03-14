@@ -1,9 +1,38 @@
 <view class="test-static">
-  <view>
-    <view>1</view>
-    <view>2</view>
-    <view>3</view>
+  <view wx:if="{{staticData.title}}">
+    <view class="title">
+      <view class="label">试卷名称:</view>
+      <view>{{staticData.title}}</view>
+    </view>
+    <view class="title">
+      <view class="label">试卷分数:</view>
+      <view class="item-right">{{100}}</view>
+    </view>
+    <view class="title">
+      <view class="label">开始时间:</view>
+      <view>{{90}}</view>
+    </view>
+    <view class="title">
+      <view class="label">题型:</view>
+      <view class="item">选择题</view>
+      <view class="item">多选题</view>
+      <view class="item">判断题</view>
+    </view>
   </view>
-  <view></view>
+  <view wx:else class="static">
+    <view class="item">
+      <view class="num">{{staticData.total}}</view>
+      <view>考试次数</view>
+    </view>
+    <view class="item">
+      <view class="num">{{staticData.pass}}</view>
+      <view>合格次数</view>
+    </view>
+    <view class="item">
+      <view class="num">{{staticData.average}}</view>
+      <view>近5次平均分</view>
+    </view>
+  </view>
+  <view class="btn-start" bindtap="handleSelfTest">开始考试</view>
   <view></view>
 </view>

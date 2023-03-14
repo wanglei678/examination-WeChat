@@ -1,49 +1,55 @@
 <view class="common-test">
-  <view class="title">
-    <view class="question-type">{{typeMap[current.type]}}</view>
-    <view style="display:inline-block">
-      <rich-text nodes="{{current.title}}"></rich-text>
-    </view>
-  </view>
-  <view class="options" wx:if="{{current.type!='multiple'}}">
-    <view bindtap="handleChoose" class="option {{current.choosedOption===item&& 'active'}}" data-value="{{item}}" wx:for="{{current.option}}" wx:for-index="index" wx:key="index" wx:for-item="item">
-      <view class="img-box">
-        <image wx:if="{{current.choosedOption===item&&current.choosedOption===current.answer}}" class="img" src="/images/right.png"></image>
-        <image wx:if="{{current.choosedOption===item&&current.choosedOption!==current.answer}}" class="img" src="/images/error.png"></image>
+  <view class="time">倒计时:{{timeStr}}</view>
+  <scroll-view scroll-y="true" style="height: 85%;">
+    <view class="title">
+      <view class="question-type">{{typeMap[current.type]}}</view>
+      <view style="display:inline-block">
+        <rich-text nodes="{{current.title}}"></rich-text>
       </view>
-      <view>{{orderMap[index]+". "+item}}</view>
     </view>
-  </view>
-  <view class="options" wx:if="{{current.type=='multiple'}}">
-    <view bindtap="handleMultipleChoose" class="option {{(current['active'+index]==index)&& 'active'}}" data-value="{{index}}" wx:for="{{current.option}}" wx:for-index="index" wx:key="index" wx:for-item="item">
-      <view>{{orderMap[index]+". "+item}}</view>
+    <view wx:if="{{current.optionType=='img'}}" style="display:block">
+      <image class="img" src="{{current.option}}"></image>
     </view>
-  </view>
-  <view wx:if="{{current.type!='multiple'?current.choosedOption:current.showAnswer}}" class="right-answer">
-    <view class="img-box">
-      <image class="img" src="/images/answer.png"></image>
-    </view>
-    <view class="label">正确答案:</view>
-    <view>{{current.answer}}</view>
-  </view>
-  <view wx:if="{{current.type!='multiple'?current.choosedOption:current.showAnswer}}" class="analysis">
-    <view style="display:flex">
-      <view class="img-box">
-        <image class="img" src="/images/analysis.png"></image>
+    <view class="options" wx:if="{{current.type!='multiple'}}">
+      <view bindtap="handleChoose" data-value="{{index}}" wx:for="{{current.options}}" class="option {{current.choosedOption===index&& 'active'}}" wx:for-index="index" wx:key="index" wx:for-item="item">
+        <view class="img-box">
+          <image wx:if="{{current.choosedOption===index&&optionMap[current.choosedOption]===current.answer}}" class="img" src="/images/right.png"></image>
+          <image wx:if="{{current.choosedOption===index&&optionMap[current.choosedOption]!=current.answer}}" class="img" src="/images/error.png"></image>
+        </view>
+        <view>{{orderMap[index]+". "+item}}</view>
       </view>
-      <view class="label">题目解析:</view>
     </view>
-    <view>
-      <rich-text nodes="{{current.analysis}}"></rich-text>
+    <view class="options" wx:if="{{current.type=='multiple'}}">
+      <view bindtap="handleMultipleChoose" class="option {{(current['active'+index]==index)&& 'active'}}" data-value="{{index}}" wx:for="{{current.options}}" wx:for-index="index" wx:key="index" wx:for-item="item">
+        <view class="{{(current.status=='error')&& 'error'}}">{{orderMap[index]+". "+item}}</view>
+      </view>
     </view>
-  </view>
+    <view wx:if="{{current.type!='multiple'?current.choosedOption!=underfined:current.showAnswer}}" class="right-answer">
+      <view class="img-box">
+        <image class="img" src="/images/answer.png"></image>
+      </view>
+      <view class="label">正确答案:</view>
+      <view>{{current.answer}}</view>
+    </view>
+    <view wx:if="{{current.type!='multiple'?current.choosedOption!=underfined:current.showAnswer}}" class="analysis">
+      <view style="display:flex">
+        <view class="img-box">
+          <image class="img" src="/images/analysis.png"></image>
+        </view>
+        <view class="label">题目解析:</view>
+      </view>
+      <view>
+        <rich-text nodes="{{current.analysis}}"></rich-text>
+      </view>
+    </view>
+  </scroll-view>
   <view class="footer">
     <view class="footer-title">
       <view style="display:flex">
-        <view class="img-box" bindtap="collectThisProblem">
+        <!-- <view class="img-box" bindtap="collectThisProblem">
           <image wx:if="{{showCollectionIcon}}" class="img" src="/images/saved.png"></image>
           <image wx:if="{{!showCollectionIcon}}" class="img" src="/images/collect.png"></image>
-        </view>
+        </view> -->
         <view class="next-btn margin-left" bindtap="goToSubmit">{{"交卷"}}</view>
       </view>
       <!-- <view style="display:flex;" bindtap="handleClickFooter">
@@ -64,16 +70,18 @@
         <view wx:if="{{current.type=='multiple'}}" class="next-btn margin-right" bindtap="submitMultipleChoose">
           提交
         </view>
-        <view class="next-btn" bindtap="goToNext">{{"下一题"}}</view>
+        <view class="next-btn" wx:if="{{currentIndex!=problemList.length-1}}" bindtap="goToNext">{{"下一题"}}</view>
       </view>
     </view>
-    <view wx:if="{{showFooter}}" class="all">
-      <view bindtap="handleChoosePeoblem" data-value="{{index}}" wx:for="{{problemList}}" wx:for-index="index" wx:key="index" wx:for-item="item">
-        <view class="problem {{item.status=='right'?'problem-right':'test'}} {{item.status=='error'?'problem-error':''}} {{(item.status=='error'&&currentIndex==index)?'problem-active-err':''}} {{(item.status!='error'&&currentIndex==index)?'problem-active':''}}">
-          <text class="num">{{index}}</text>
+    <scroll-view wx:if="{{showFooter}}" scroll-y="true" style="height: 300rpx;" scroll-top="{{scrollTop}}">
+      <view wx:if="{{showFooter}}" class="all">
+        <view bindtap="handleChoosePeoblem" data-value="{{index}}" wx:for="{{dataList}}" wx:for-index="index" wx:key="index" wx:for-item="item">
+          <view class="problem {{item.status=='right'?'problem-right':'test'}} {{item.status=='error'?'problem-error':''}} {{(item.status=='error'&&currentIndex==index)?'problem-active-err':''}} {{(item.status!='error'&&currentIndex==index)?'problem-active':''}}">
+            <text class="num">{{index+1}}</text>
+          </view>
         </view>
       </view>
-    </view>
+    </scroll-view>
   </view>
   <view wx:if="{{showFooter}}" class="modal" bindtap="handleClickFooter"></view>
 </view>

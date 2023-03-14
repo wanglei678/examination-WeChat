@@ -9,8 +9,15 @@
     "pages/chapter/index",
     "pages/chapterTest/index",
     "pages/mockTest/index",
-    "pages/static/index"
+    "pages/static/index",
+    "pages/pwd/index",
+    "pages/login/index",
+    "pages/chapterIndex/index",
+    "pages/masterIndex/index",
+    "pages/masterSub/index",
+    "pages/mijuan/index"
   ],
+  "lazyCodeLoading":"requiredComponents",
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",

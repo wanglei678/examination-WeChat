@@ -24,5 +24,11 @@ Component({
     console.log("....ready", this.properties);
   },
   //组件的方法列表
-  methods: {},
+  methods: {
+    handleSelfTest(){
+      wx.navigateTo({
+        url: "/pages/mockTest/index?id="+this.properties.staticData.id,
+      });
+    }
+  },
 });

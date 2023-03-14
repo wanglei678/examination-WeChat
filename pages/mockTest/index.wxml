@@ -1,6 +1,6 @@
 <!-- index.wxml -->
 <view class="mock-test">
-  <view style="height:100%"><Test problem-list="{{testData}}"/></view>
+  <view style="height:100%"><Test wx:if="{{testData.length>0}}" problem-list="{{testData}}" type="{{}}"/></view>
   <view></view>
   <view></view>
 </view>

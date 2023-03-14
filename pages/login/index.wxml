@@ -1,0 +1,17 @@
+<!-- index.wxml -->
+<view class="login">
+  <image class="img" src="/images/login.jpg"></image>
+  <view class="login-form">
+    <!-- <view>
+      <input bindinput="bindMobile" class="weui-input" placeholder="请输入手机号码" />
+    </view>
+    <view>
+      <input bindinput="bindCode" class="weui-input" placeholder="请输入密码" />
+    </view>
+    <view class="login-btn" bindtap="goToNext">登录</view> -->
+    <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">微信一键登录</button>
+  </view>
+  
+  <view></view>
+  <view></view>
+</view>

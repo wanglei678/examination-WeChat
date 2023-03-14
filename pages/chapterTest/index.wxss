@@ -2,6 +2,9 @@
   height: 100%;
   position: relative;
 }
+.chapter-test .img_style {
+  width: 90%;
+}
 .chapter-test .title {
   word-wrap: break-word;
   padding-left: 10px;
@@ -17,6 +20,7 @@
   display: flex;
   flex-direction: column;
   height: 20px;
+  width: 50px;
 }
 .chapter-test .img-box {
   width: 20px;
@@ -42,6 +46,9 @@
 .chapter-test .options .active {
   background-color: #1296db;
   color: #fff;
+}
+.chapter-test .options .error {
+  color: red;
 }
 .chapter-test .right-answer {
   margin: 10px 30px;

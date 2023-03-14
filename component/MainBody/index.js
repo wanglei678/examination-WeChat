@@ -12,15 +12,16 @@ Component({
       { key: "chapter", label: "章节练习" },
     ],
     onlineTest: [
-      { key: "simulation", label: "模拟考试" },
+      { key: "simulation", label: "通关密卷" },
       { key: "real", label: "真题在线" },
-      { key: "pass", label: "通关密卷" },
+      { key: "pass", label: "模拟考试" },
     ],
     operationExercise: [
-      { key: "primary", label: "初级实操" },
-      { key: "middle", label: "中级监控实操" },
-      { key: "high", label: "中级维保实操" },
+      { key: "1", label: "初级实操" },
+      { key: "2", label: "中级监控实操" },
+      { key: "3", label: "中级维保实操" },
     ],
+    grade: 0,
     imgDomain: app.globalData.imgDomain, //图片域名
     totalDisount: "0.0",
   },
@@ -33,8 +34,13 @@ Component({
   },
   lifetimes: {
     attached() {
-      // this.getCardBanner();
-      // this.getTotalDiscount();
+      const user = wx.getStorageSync("user");
+      if (user) {
+        // const { operationExercise } = this.data;
+        // let grade = user.grade;
+        // const arr = operationExercise.filter((item) => item.key == grade);
+        // this.setData({ grade, operationExercise: arr });
+      }
     },
   },
 
@@ -46,21 +52,51 @@ Component({
       console.log(".....", index);
       if (index == 0) {
         wx.navigateTo({
-          url: "/pages/master/index",
+          url: "/pages/masterIndex/index",
         });
       } else {
         wx.navigateTo({
-          url: "/pages/chapter/index?key=1",
+          url: "/pages/chapterIndex/index",
         });
       }
     },
     handleSelfTest(e) {
       const index = e.target.dataset.index;
-      console.log(".....", index);
-      // pages/static/index
-      wx.navigateTo({
-        url: "/pages/static/index?id=" + index,
-      });
+
+      wx.setStorageSync("examType", index);
+      if (index == 0) {
+        wx.navigateTo({
+          url: "/pages/mijuan/index",
+        });
+      } else if (index == 1) {
+        wx.showToast({
+          title: "您暂无权限!",
+          icon: "none",
+          duration: 2000,
+        });
+      } else {
+        // pages/static/index
+        wx.navigateTo({
+          url: "/pages/static/index?id=" + index,
+        });
+      }
+    },
+    handleSelfOper(e) {
+      const item = e.target.dataset.item;
+      console.log(".....", item);
+      const user = wx.getStorageSync("user");
+      if (item.key == user.grade) {
+        wx.setStorageSync("master", { id: item.key });
+        wx.navigateTo({
+          url: "/pages/masterSub/index",
+        });
+      } else {
+        wx.showToast({
+          title: "您暂无权限!",
+          icon: "none",
+          duration: 2000,
+        });
+      }
     },
   },
 });

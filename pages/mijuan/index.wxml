@@ -1,0 +1,9 @@
+<!-- index.wxml -->
+<view class="mijuan-test">
+  <view class="box">
+    <view bindtap="goToTest" data-value="{{item}}" wx:for="{{datalist}}" wx:for-index="index" wx:key="index" wx:for-item="item">
+      <view class="title">{{item.name}}</view>
+    </view>
+  </view>
+  <view></view>
+</view>

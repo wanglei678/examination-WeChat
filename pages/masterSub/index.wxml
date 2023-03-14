@@ -1,0 +1,10 @@
+<view class="chapter">
+  <scroll-view scroll-y="true" style="height: 90%;">
+    <view class="chapter-item" wx:for="{{chapterList}}" wx:for-index="index" wx:key="index" wx:for-item="item">
+      <view class="item-box" data-item="{{index}}" bindtap="handleChapterClick">
+        <view style="color:#1296db">{{index+1+". "+item.title}}</view>
+        <!-- <view class="item-right">{{item.sum}}题</view> -->
+      </view>
+    </view>
+  </scroll-view>
+</view>
